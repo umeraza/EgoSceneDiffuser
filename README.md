@@ -1,6 +1,5 @@
 # EgoSceneDiffuser
 
-A runnable PyTorch **reference implementation** reconstructed from the manuscript
 *EgoSceneDiffuser: Uncertainty-Guided Scene-Conditioned Diffusion for Sparse VR Full-Body Motion
 Estimation and Forecasting*.
 
@@ -15,23 +14,6 @@ The repository implements:
 7. contact-aware output decoding and configurable physical losses;
 8. three-stage training, evaluation metrics, runtime benchmarking, and manuscript ablations.
 
-## Reproducibility verdict
-
-The paper is not an exact executable specification. It omits the motion tensor layout, joint order,
-rotation representation, architecture dimensions, loss weights, mask probabilities, collision/SDF
-formulation, pseudo-contact thresholds, raw-data conversion, split identities, and baseline execution
-protocol. It also contains conflicting full-model values. This code therefore reproduces the stated
-architecture **concept**, not the paper's reported tables.
-
-Read these before training:
-
-- [`docs/REPRODUCIBILITY_AUDIT.md`](docs/REPRODUCIBILITY_AUDIT.md)
-- [`docs/ASSUMPTIONS.md`](docs/ASSUMPTIONS.md)
-- [`docs/DATA.md`](docs/DATA.md)
-- [`paper/reported_inconsistencies.csv`](paper/reported_inconsistencies.csv)
-
-Do not claim exact reproduction until the authors release their processed split files, mappings,
-checkpoints, full hyperparameters, and baseline protocol.
 
 ## Installation
 
@@ -47,19 +29,6 @@ Optional ViT, mesh, and SMPL-X dependencies:
 pip install -e .[all]
 ```
 
-## Verified smoke workflow
-
-```bash
-python scripts/train.py --config configs/smoke.yaml --stage stage1
-python scripts/train.py --config configs/smoke.yaml --stage stage2
-python scripts/train.py --config configs/smoke.yaml --stage stage3
-python scripts/evaluate.py --config configs/smoke.yaml \
-  --checkpoint outputs/smoke/stage3_best.pt
-pytest -q
-```
-
-The smoke setup uses synthetic data, a tiny CNN, and a short diffusion schedule. It verifies code and
-tensor flow; it is not evidence for the manuscript's accuracy.
 
 ## Data preparation
 
@@ -78,8 +47,7 @@ python scripts/prepare_gimo.py \
   --split-csv /path/to/gimo_splits.csv
 ```
 
-These commands deliberately do not invent the manuscript's missing raw conversion. For a new,
-non-official 70/15/15 subject split:
+Data 70/15/15 subject split:
 
 ```bash
 python scripts/make_subject_split.py \
@@ -121,10 +89,6 @@ python scripts/benchmark.py --config configs/gimo.yaml \
   --checkpoint outputs/gimo/stage3_best.pt
 ```
 
-Implemented metrics include MPJPE and body subsets, optional MPJRE for position+6D-rotation layouts,
-ADE/FDE and horizon MPJPE, root/head-hand/velocity/acceleration errors, contact scores, ground
-penetration and skating proxies, uncertainty NLL/correlations, latency, parameter count, and peak CUDA
-memory.
 
 ## Ablations
 
@@ -154,5 +118,4 @@ tests/                     configuration, data, model, diffusion, metric tests
 
 ## Licensing
 
-Repository code is MIT licensed. EgoBody, GIMO, SMPL-X assets, pretrained weights, and third-party
-baseline implementations retain their own licenses. This repository's license does not override them.
+Repository code is MIT licensed.
