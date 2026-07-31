@@ -1,0 +1,5 @@
+_base_: ../base.yaml
+ablation:
+  disable_contact_decoder: true
+loss:
+  contact: 0.0

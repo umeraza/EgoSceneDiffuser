@@ -1,0 +1,3 @@
+_base_: ../base.yaml
+loss:
+  foot_contact: 0.0

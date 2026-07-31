@@ -1,0 +1,3 @@
+_base_: ../base.yaml
+loss:
+  head_hand_alignment: 0.0

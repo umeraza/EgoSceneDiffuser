@@ -1,0 +1,60 @@
+_base_: base.yaml
+experiment:
+  name: smoke
+  output_dir: outputs/smoke
+  device: cpu
+data:
+  name: synthetic
+  observed_frames: 8
+  future_frames: 4
+  num_joints: 12
+  motion_features: 3
+  sparse_dim: 36
+  trajectory_dim: 9
+  contact_joints: [7, 8, 10, 11]
+  head_joint: 6
+  hand_joints: [9, 10]
+  lower_body_joints: [1, 2, 3, 4, 7, 8, 10, 11]
+  scene_points: 64
+  scene_tokens: 16
+  image_size: 32
+  batch_size: 2
+  num_workers: 0
+  synthetic_samples: 8
+model:
+  d_model: 48
+  n_heads: 4
+  temporal_layers: 1
+  denoiser_layers: 2
+  dim_feedforward: 96
+  max_sequence_length: 32
+  visual_pretrained: false
+  visual_stride: 1
+  use_timm: false
+  diffusion:
+    train_steps: 20
+    inference_steps: 4
+    beta_schedule: linear
+    ddim_eta: 0.0
+    prediction_type: x0
+    repaint_observed: true
+training:
+  stage: stage1
+  learning_rate: 1.0e-3
+  stages:
+    stage1:
+      epochs: 1
+      batch_size: 2
+      train_modules: [all]
+    stage2:
+      epochs: 1
+      batch_size: 2
+      train_modules: [all]
+    stage3:
+      epochs: 1
+      batch_size: 2
+      train_modules: [all]
+evaluation:
+  batch_size: 2
+  runtime_warmup: 1
+  runtime_iterations: 2

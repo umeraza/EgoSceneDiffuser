@@ -1,0 +1,10 @@
+_base_: base.yaml
+experiment:
+  name: gimo_forecasting
+  output_dir: outputs/gimo
+data:
+  name: gimo
+  root: data/processed/gimo
+  manifest: data/processed/gimo/manifest.csv
+  official_split: true
+  subject_disjoint_split: false

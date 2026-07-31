@@ -1,0 +1,2 @@
+path,split,dataset,sequence_id,subject_id,scene_id,start_frame
+windows/example_000001.npz,train,egobody,example_000001,subject_001,scene_001,0

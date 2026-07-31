@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "egoscenediffuser"
+version = "0.1.0"
+description = "Research implementation scaffold for EgoSceneDiffuser"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "EgoSceneDiffuser authors"}]
+dependencies = [
+  "torch>=2.2",
+  "numpy>=1.24",
+  "PyYAML>=6.0",
+  "pandas>=2.0",
+  "Pillow>=10.0",
+  "scipy>=1.10",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+vision = ["timm>=1.0"]
+geometry = ["trimesh>=4.0", "smplx>=0.1.28"]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+all = ["timm>=1.0", "trimesh>=4.0", "smplx>=0.1.28", "pytest>=8.0", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["egoscenediffuser*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

@@ -1,0 +1,109 @@
+experiment:
+  name: egoscenediffuser
+  seed: 42
+  output_dir: outputs/base
+  device: auto
+  precision: fp32
+
+data:
+  name: standardized_npz
+  root: data/processed
+  manifest: data/processed/manifest.csv
+  split: train
+  fps: 30
+  observed_frames: 60
+  future_frames: 90
+  num_joints: 22
+  motion_features: 3
+  sparse_dim: 36
+  trajectory_dim: 9
+  contact_joints: [7, 8, 10, 11]
+  head_joint: 15
+  hand_joints: [20, 21]
+  lower_body_joints: [1, 2, 4, 5, 7, 8, 10, 11]
+  scene_points: 2048
+  scene_tokens: 128
+  image_size: 224
+  batch_size: 16
+  num_workers: 4
+  pin_memory: true
+  official_split: true
+  subject_disjoint_split: false
+  split_ratios: [0.70, 0.15, 0.15]
+model:
+  d_model: 256
+  n_heads: 8
+  temporal_layers: 4
+  denoiser_layers: 6
+  dim_feedforward: 1024
+  dropout: 0.1
+  max_sequence_length: 180
+  visual_backbone: vit_base_patch16_224
+  visual_pretrained: true
+  freeze_visual_backbone: true
+  visual_stride: 4
+  use_timm: true
+  uncertainty_epsilon: 1.0e-4
+  uncertainty_noise_strength: 0.5
+  mask_probabilities:
+    sparse: 0.10
+    history: 0.10
+    visual: 0.20
+    trajectory: 0.10
+    scene: 0.20
+  diffusion:
+    train_steps: 1000
+    inference_steps: 20
+    beta_schedule: cosine
+    ddim_eta: 0.0
+    prediction_type: x0
+    repaint_observed: true
+    repaint_mode: full
+loss:
+  prior: 1.0
+  diffusion: 1.0
+  task: 1.0
+  contact: 0.2
+  position: 1.0
+  future: 1.0
+  observed_consistency: 0.5
+  uncertainty: 0.1
+  collision: 0.1
+  foot_contact: 0.1
+  foot_height: 0.05
+  ground_penetration: 0.1
+  head_hand_alignment: 0.2
+  temporal_smoothness: 0.02
+  collision_margin_m: 0.02
+  ground_height_m: 0.0
+training:
+  stage: all
+  optimizer: adamw
+  learning_rate: 2.0e-4
+  weight_decay: 1.0e-4
+  gradient_clip: 1.0
+  warmup_epochs: 5
+  amp: false
+  log_every: 20
+  save_every: 1
+  resume: null
+  stages:
+    stage1:
+      epochs: 80
+      batch_size: 64
+      train_modules: [sparse_encoder, history_encoder, trajectory_encoder, temporal_encoder, prior]
+    stage2:
+      epochs: 100
+      batch_size: 32
+      train_modules: [all]
+      disable_losses: [contact, collision, foot_contact, foot_height, ground_penetration]
+    stage3:
+      epochs: 40
+      batch_size: 16
+      train_modules: [all]
+evaluation:
+  batch_size: 1
+  future_horizons: [30, 60, 90]
+  report_runtime: true
+  runtime_warmup: 10
+  runtime_iterations: 100

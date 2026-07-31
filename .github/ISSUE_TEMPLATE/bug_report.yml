@@ -1,0 +1,20 @@
+name: Bug report
+description: Report a reproducible implementation problem
+body:
+  - type: textarea
+    attributes:
+      label: Command and configuration
+      description: Include the exact command, config, and overrides.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Error and environment
+      description: Include the traceback, Python/PyTorch versions, hardware, and dataset adapter.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Minimal reproduction
+    validations:
+      required: true

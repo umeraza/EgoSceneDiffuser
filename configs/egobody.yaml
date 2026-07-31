@@ -1,0 +1,16 @@
+_base_: base.yaml
+experiment:
+  name: egobody_reconstruction
+  output_dir: outputs/egobody
+data:
+  name: egobody
+  root: data/processed/egobody
+  manifest: data/processed/egobody/manifest.csv
+  future_frames: 0
+  official_split: true
+  subject_disjoint_split: false
+
+model:
+  diffusion:
+    repaint_observed: false
+    repaint_mode: none

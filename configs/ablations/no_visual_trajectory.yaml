@@ -1,0 +1,3 @@
+_base_: ../base.yaml
+ablation:
+  drop_modalities: [visual, trajectory]

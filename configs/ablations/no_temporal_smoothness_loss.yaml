@@ -1,0 +1,3 @@
+_base_: ../base.yaml
+loss:
+  temporal_smoothness: 0.0

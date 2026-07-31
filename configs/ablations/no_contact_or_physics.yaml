@@ -1,0 +1,11 @@
+_base_: ../base.yaml
+ablation:
+  disable_contact_decoder: true
+loss:
+  contact: 0.0
+  collision: 0.0
+  foot_contact: 0.0
+  foot_height: 0.0
+  ground_penetration: 0.0
+  head_hand_alignment: 0.0
+  temporal_smoothness: 0.0

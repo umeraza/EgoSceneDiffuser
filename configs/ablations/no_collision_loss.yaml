@@ -1,0 +1,3 @@
+_base_: ../base.yaml
+loss:
+  collision: 0.0

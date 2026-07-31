@@ -1,0 +1,17 @@
+name: egoscenediffuser
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pytorch>=2.2
+  - numpy>=1.24
+  - pandas>=2.0
+  - pyyaml>=6.0
+  - pillow>=10.0
+  - scipy>=1.10
+  - tqdm>=4.66
+  - pip
+  - pip:
+      - timm>=1.0
+      - pytest>=8.0

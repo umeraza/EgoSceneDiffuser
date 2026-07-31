@@ -1,0 +1,4 @@
+_base_: ../base.yaml
+loss:
+  foot_height: 0.0
+  ground_penetration: 0.0

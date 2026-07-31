@@ -1,0 +1,5 @@
+_base_: ../base.yaml
+model:
+  diffusion:
+    repaint_observed: false
+    repaint_mode: none

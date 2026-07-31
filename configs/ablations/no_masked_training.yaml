@@ -1,0 +1,8 @@
+_base_: ../base.yaml
+model:
+  mask_probabilities:
+    sparse: 0.0
+    history: 0.0
+    visual: 0.0
+    trajectory: 0.0
+    scene: 0.0
