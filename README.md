@@ -5,13 +5,13 @@ Estimation and Forecasting*.
 
 The repository implements:
 
-1. head-centric sparse HMD/controller, history, and trajectory encoding;
-2. mean/uncertainty motion-prior prediction with optional reparameterization;
-3. RGB and local point-cloud encoders;
-4. spatially biased body-to-scene cross-attention;
-5. uncertainty-conditioned diffusion training and DDIM inference;
-6. full, final-step, root/upper-body, or disabled prefix repainting;
-7. contact-aware output decoding and configurable physical losses;
+1. head-centric sparse HMD/controller, history, and trajectory encoding
+2. mean/uncertainty motion-prior prediction with optional reparameterization
+3. RGB and local point-cloud encoders;\
+4. spatially biased body-to-scene cross-attention
+5. uncertainty-conditioned diffusion training and DDIM inference
+6. full, final-step, root/upper-body, or disabled prefix repainting
+7. contact-aware output decoding and configurable physical losses
 8. three-stage training, evaluation metrics, runtime benchmarking, and manuscript ablations.
 
 
