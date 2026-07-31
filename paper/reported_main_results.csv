@@ -1,8 +1,0 @@
-method,input_setting,egobody_mpjpe_mm,egobody_lower_mpjpe_mm,egobody_mpjre_deg,penetration_mm,skate_cm_s,gimo_ade_mm,gimo_fde_mm,fps,status
-SSD-Poser,Sparse HMD/controller,62.8,84.6,10.9,14.8,5.6,,,92.4,manuscript-reported
-EnvPoser,Sparse HMD/controller + Scene,55.7,72.3,9.4,8.6,4.3,,,41.2,manuscript-reported
-RPM,Sparse XR,59.4,78.1,10.2,12.9,4.7,72.6,119.8,78.7,manuscript-reported
-UniEgoMotion,Ego Visual + Trajectory,53.8,70.4,9.1,,,64.9,106.5,24.6,manuscript-reported
-EgoPoseVR,HMD + RGB-D,50.6,66.8,8.6,10.6,3.9,,,36.5,manuscript-reported
-EgoPoseFormer v2,Egocentric AR/VR,48.9,63.5,8.2,9.8,3.6,,,31.8,manuscript-reported
-EgoSceneDiffuser,HMD/controller + Ego Visual + Trajectory + Scene,43.6,55.2,7.1,5.1,2.4,52.7,86.9,28.4,manuscript-reported

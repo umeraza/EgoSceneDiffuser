@@ -1,4 +1,0 @@
-issue,main_value,conflicting_value,notes
-Full-model MPJPE,43.6,42.9,Main comparison and prior ablation use 43.6; diffusion narrative uses 42.9.
-50-step MPJPE claim,42.9 at 20 steps,43.2 at 50 steps,Text still says 50-step model gives the lowest errors.
-Best lower-body prior ablation,55.2 full,54.7 without reparameterization,Full model is not best on this listed metric.

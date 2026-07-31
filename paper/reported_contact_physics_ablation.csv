@@ -1,9 +1,0 @@
-variant,mpjpe_mm,penetration_mm,contact_f1,acceleration_mm_per_frame2,status
-Without contact and physical losses,47.6,15.4,0.682,5.2,manuscript-reported
-Without contact decoder,45.3,7.4,0.713,3.1,manuscript-reported
-Without COAP collision loss,44.5,12.7,0.773,2.8,manuscript-reported
-Without foot-contact consistency,44.9,5.9,0.734,3.0,manuscript-reported
-Without foot-height/ground losses,44.3,6.6,0.762,2.8,manuscript-reported
-Without head-hand alignment loss,45.6,5.8,0.771,2.9,manuscript-reported
-Without temporal smoothness loss,44.2,5.1,0.776,4.7,manuscript-reported
-Full EgoSceneDiffuser,43.6,5.1,0.781,2.6,manuscript-reported

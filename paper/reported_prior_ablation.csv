@@ -1,6 +1,0 @@
-variant,mpjpe_mm,lower_mpjpe_mm,nll,pearson,status
-Deterministic sparse prior,49.8,65.9,,,manuscript-reported
-Uncertainty prediction,47.1,61.8,2.84,0.46,manuscript-reported
-Without heteroscedastic uncertainty loss,46.3,60.2,3.12,0.29,manuscript-reported
-Without reparameterized sparse hypothesis,45.8,54.7,2.49,0.51,manuscript-reported
-Full uncertainty-aware sparse prior,43.6,55.2,2.11,0.63,manuscript-reported
